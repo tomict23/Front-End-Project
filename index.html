@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="javascript/app.js"></script>
+    <title>Poké•Dex</title>
+  </head>
+  <body>
+    <script src="javascript/three.js"></script>
+    <div id="left-panel"></div>
+    <!-- Main -->
+    <div id="main">
+      <div id="header" class="header">
+        <h1>PokéDex Card Viewer</h1>
+      </div>
+      <div id="user-section">
+        <input
+          type="text"
+          name="search"
+          id="searchbar"
+          placeholder="Dex# or Name..."
+        />
+        <button id="submit">Generate Card</button>
+        <button id="randomCardButton">Random</button>
+      </div>
+      <div id="results"></div>
+    </div>
+  </body>
+</html>

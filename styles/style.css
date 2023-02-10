@@ -1,0 +1,360 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  box-shadow: 0 0 500px 500px black inset, 0 0 1px 0.2px rgb(255, 255, 255, 0.5);
+  /* background-image: linear-gradient(rgb(46, 46, 46), rgb(88, 47, 161)); */
+  height: 100%;
+  font-size: 10px;
+}
+
+body {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+canvas {
+  height: 100vh;
+  position: fixed;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+#left-panel {
+  z-index: 1;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  margin-right: 50px;
+  /* outline: 1px solid blue; */
+}
+
+#main {
+  z-index: 1;
+  width: auto;
+  position: absolute;
+  font-family: "Arima Madurai", cursive;
+  background-color: transparent;
+  top: 50px;
+  text-align: center;
+  padding: 20px;
+  color: rgb(255, 255, 255);
+  /* outline: 1px solid white; */
+}
+
+#results {
+  width: 36em;
+  height: fit-content;
+  background-color: rgba(175, 184, 185, 0);
+  margin: auto;
+  padding-top: 50px;
+  height: fit-content;
+  /* outline: 1px solid red; */
+}
+
+#cardholder {
+  width: 36em;
+  height: 39em;
+  display: grid;
+  justify-content: center;
+  overflow: visible;
+  /* border: 1px solid black; */
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg) translateZ(0px);
+  perspective: 800px;
+  transform-origin: center;
+  transition: all 2s;
+  animation: slow-show 1s ease-out 0s 1 normal;
+  /* outline: 1px solid white; */
+}
+
+@keyframes slow-show {
+  0% {
+    opacity: 0%;
+    height: 0em;
+    /* width: 0em; */
+  }
+  25% {
+    opacity: 0%;
+  }
+  100% {
+    height: 39em;
+    opacity: 100%;
+    /* width: 60em; */
+  }
+}
+
+#cardholder:hover {
+  transform: rotateX(10deg) rotateY(0deg) translateZ(100px);
+}
+#cardholder:hover + #cardholder {
+  transform: rotateX(-10deg) rotateY(0deg) translateZ(100px);
+}
+.result-card {
+  width: 26em;
+  height: 39em;
+  color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-blend-mode: color;
+  overflow: visible;
+  border-radius: 20px;
+  padding: 20px;
+  flex-flow: row wrap;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg) rotateY(0deg) translateZ(0px);
+  -mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 0.8))
+  );
+  transition: -webkit-gradient 1s, transform 2s, box-shadow 1s, border-radius 1s,
+    filter 2s, color 1s;
+}
+
+.result-card:hover {
+  color: white;
+  background-blend-mode: difference;
+  box-shadow: 0 0 2px 0.2px rgb(250, 244, 244) inset,
+    0 0 100px 10px rgba(0, 0, 0, 1) inset,
+    0px -90px 40px 1px rgba(0, 0, 0, 1) inset;
+  transform: rotateX(0deg) rotateY(0deg) translateY(-60px) translateZ(-100px);
+  box-shadow: 0 0 2px 0.11px rgb(250, 244, 244) inset,
+    0 0 100px 300px rgba(0, 0, 0, 0.6) inset;
+  border-radius: 30px;
+
+  /* filter: hue-rotate(360deg); */
+  -mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 0.5))
+  );
+}
+
+/*  */
+/* POKEDEX CARD VIEWER page title Style */
+/*  */
+
+.header {
+  -webkit-text-stroke: 0.2px white;
+  z-index: 2;
+  text-shadow: rgb(0, 170, 255) 0px 0px 30px;
+  font-size: 2em;
+  /* color: transparent; */
+  background-image: linear-gradient(
+    to right,
+    rgb(0, 251, 255),
+    rgba(106, 0, 255, 1)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 5s ease-in-out 2s infinite alternate;
+}
+
+@keyframes shine {
+  0% {
+    text-shadow: rgb(0, 170, 255) 0px 0px 30px;
+    background-position: left;
+  }
+  100% {
+    text-shadow: rgb(255, 179, 0) 0px 0px 30px;
+    background-position: right;
+  }
+}
+
+/*  */
+/* Card text styles*/
+/*  */
+
+.text {
+  /* Affects all card text */
+  /* -webkit-text-stroke: 0.3px rgb(255, 255, 255); */
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  /* outline: 1px solid blue; */
+}
+
+.card-name-jap {
+  /* Affects name on card */
+  font-size: 1.4em;
+  top: 40px;
+}
+
+.card-name {
+  /* Affects name on card */
+  font-size: 2em;
+  top: 0px;
+}
+
+.card-dexnum {
+  /* Affects Dex number text */
+  font-size: 1.4em;
+  right: 20px;
+  top: 10px;
+}
+
+.evolves-text {
+  /* font-size: 1.2em; */
+  bottom: 20px;
+  left: 20px;
+}
+
+.abilities-text {
+  font-size: 0.9em;
+  bottom: 10px;
+  left: 20px;
+  right: 20px;
+}
+
+.types-text {
+  /* outline: 1px solid white; */
+  left: 20px;
+  top: 35px;
+}
+
+#back-button {
+  position: absolute;
+  left: -16px;
+  bottom: 200px;
+  transform: rotateY(180deg);
+  background: transparent;
+  font-style: normal;
+  font-size: 30px;
+}
+#next-button {
+  position: absolute;
+  right: -16px;
+  bottom: 200px;
+  transform: rotate(0deg);
+  background: transparent;
+  font-style: normal;
+  font-size: 30px;
+}
+/* .triangle {
+  padding: 0px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: calc(2 * 10px * 0.866) solid rgba(255, 255, 255, 0);
+  border-top: 10px solid transparent;
+  display: inline-block;
+  transition: border-bottom 1s;
+}
+.triangle:hover {
+  border-bottom: calc(2 * 10px * 0.866) solid rgb(255, 255, 255);
+} */
+.star {
+  font-style: normal;
+  font-size: 5em;
+  left: -20px;
+  top: -15px;
+}
+.mythical-star {
+  font-style: normal;
+  font-size: 5em;
+  left: -20px;
+  top: -15px;
+}
+/*  */
+/* Side Bar and Side Bar Thumb */
+/*  */
+::-webkit-scrollbar {
+  background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 5px;
+  box-shadow: 0 0 1px 0.05px rgba(255, 255, 255, 1),
+    0 0 10px 1px rgba(0, 0, 0, 0.5) inset,
+    0 0 5px 5px rgba(255, 255, 255, 0.1) inset;
+}
+/*  */
+/* Searchbar and Search Button */
+/*  */
+#searchbar {
+  z-index: 2;
+  font-size: 1.2em;
+  width: 15em;
+  padding: 15px;
+  margin: 1px;
+  color: white;
+  background-color: rgba(106, 0, 255, 1);
+  border-radius: 30px 5px 10px 5px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5) inset;
+  border-width: 0px;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1) inset,
+    0 0 1px 0.1px rgb(255, 255, 255, 0.8);
+  transition: background-color 1s, margin-right 1s;
+}
+
+#searchbar:hover,
+#searchbar:focus {
+  background-color: rgba(0, 208, 255, 0.7);
+  margin-right: 10px;
+}
+
+#submit {
+  margin: 1px;
+  z-index: 1;
+  position: relative;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: white;
+  background-color: rgba(106, 0, 255, 1);
+  border-radius: 5px 30px 5px 10px;
+  padding: 15px;
+  border-width: 0px;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1) inset,
+    0 0 1px 0.1px rgb(255, 255, 255, 0.8);
+  transition: background-color 1s, margin-left 1s;
+}
+
+#submit:hover,
+#submit:focus {
+  background-color: rgba(0, 208, 255, 0.7);
+  margin-left: 5px;
+}
+
+#randomCardButton {
+  z-index: 0;
+  position: relative;
+  margin: 1px;
+  margin-left: -30px;
+  width: 100px;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: white;
+  background-color: rgba(106, 0, 255, 1);
+  border-radius: 5px 30px 5px 30px;
+  padding: 14px;
+  border-width: 0px;
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 1) inset,
+    0 0 1px 0.1px rgb(255, 255, 255, 0.8);
+  transition: background-color 1s, margin-left 1s;
+}
+
+#randomCardButton:hover,
+#randomCardButton:focus {
+  background-color: rgba(0, 208, 255, 0.7);
+  margin-left: -20px;
+}
